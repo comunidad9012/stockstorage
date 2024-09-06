@@ -1,4 +1,4 @@
-import conexion
+from modelsDb import conexion
 from sqlalchemy import Column, Integer, String, Float, Date
 
 class Usuario(conexion.Base):

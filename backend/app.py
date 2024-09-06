@@ -1,10 +1,9 @@
-from app import create_apps
 from flask import Flask, jsonify
 from flask import Blueprint, request, current_app, jsonify,current_app
 
 #aca traigo el modelo y la base de datos
-import conexion
-from modelos import Usuario
+from modelsDb import conexion
+from modelsDb.modelosDb import Usuario
 
 app = Flask(__name__)
 
@@ -28,9 +27,7 @@ consulta=conexion.session.query(Usuario).count()
 
 #filtrar datos
 miNombre=conexion.session.query(Usuario).filter_by(username='genaro').first()
-print(miNombre.username)
-
-app= create_apps()
+#print(miNombre.username)
 
 
 
