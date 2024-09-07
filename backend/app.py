@@ -15,18 +15,20 @@ conexion.Base.metadata.create_all(conexion.engine)
 
 #ingresar datos
 def run():
-    papa=Usuario("felix")
+    papa=Usuario("Rosario")
     conexion.session.add(papa)
     print(papa.id)
     conexion.session.commit()
 #run()
 
-consulta=conexion.session.query(Usuario).all()
-#print(consulta)
-consulta=conexion.session.query(Usuario).count()
+# consulta=conexion.session.query(Usuario).all()
+# for i in consulta:
+#     print(i.email)
+
+#consulta=conexion.session.query(Usuario).count()
 
 #filtrar datos
-miNombre=conexion.session.query(Usuario).filter_by(username='genaro').first()
+#miNombre=conexion.session.query(Usuario).filter_by(username='genaro').first()
 #print(miNombre.username)
 
 

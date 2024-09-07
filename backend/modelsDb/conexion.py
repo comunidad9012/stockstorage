@@ -2,11 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-
 #conexion con SQLALCHEMY
 host="localhost"
 user="usuario"
-password="password"
+password="root"
 db="stockstorage"
 
 engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}:{3307}/{db}')
