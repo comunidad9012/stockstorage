@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  image: mysql:latest
+  ports:
+    -3307:3307
+  enviroment: 
+    - MYSQL_ROOT_PASSWORD=root
+    -MYSQL_DATABASE=stockcommerce
+
+  volumes:
+    - stockcommerce: /var/lib/docker/volumes
