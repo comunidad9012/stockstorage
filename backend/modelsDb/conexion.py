@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 host="localhost"
 user="usuario"
 password="root"
-db="stockstorage"
+db="stockcommerce"
 
 engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}:{3307}/{db}')
 Session=sessionmaker(bind=engine)

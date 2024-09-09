@@ -15,11 +15,11 @@ conexion.Base.metadata.create_all(conexion.engine)
 
 #ingresar datos
 def run():
-    papa=Usuario("Rosario")
-    conexion.session.add(papa)
-    print(papa.id)
+    usuario=Usuario("rosa@gmail.com", "12356")
+    conexion.session.add(usuario)
+    print(usuario.id)
     conexion.session.commit()
-#run()
+run()
 
 # consulta=conexion.session.query(Usuario).all()
 # for i in consulta:
