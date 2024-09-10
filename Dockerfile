@@ -1,17 +1,23 @@
 #para hacerlo andar:
 #docker build -t flaskapp .
 
-FROM alpine:3.19
+# Usa una imagen base que ya incluya Python
+FROM python:3.9-slim
 
-RUN apk add --no-cache python3 py3-pip
-RUN pip3 install --no-cache-dir --upgrade pip
+# Actualiza pip
+RUN pip install --upgrade pip
 
-#directorio que se crea dentro del contenedor
-WORKDIR /app 
+# Crea un directorio para la aplicación y establece el directorio de trabajo
+WORKDIR /app
 
-#copia todo dentro del directorio app del contenedor
-COPY . /app
+# Copia el archivo de requisitos primero para aprovechar la caché de Docker
+COPY requirements.txt /app/
 
-RUN pip3 install --no-cache-dir install -r requirements.txt
+# Instala las dependencias de Python
+RUN pip install -r requirements.txt
 
-CMD [ "python", "backend/app.py" ]
+# Copia el resto de la aplicación
+COPY . /app/
+
+# Establece el comando predeterminado para ejecutar la aplicación
+CMD ["python", "backend/app.py"]
