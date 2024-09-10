@@ -1,16 +1,17 @@
-FROM python:3
- #directorio que se crea en el contendor
-WORKDIR /app
+#para hacerlo andar:
+#docker build -t flaskapp .
 
-#variables de flask, indicamos donde esta el archivo principal
-ENV FLASK_APP app.py 
-ENV FLASK_RUN_HOST 0.0.0.0
+FROM alpine:3.19
 
-#ruta donde se encuentra el requirements y ruta a donde sera copiado (/app/)
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apk add --no-cache python3 py3-pip
+RUN pip3 install --no-cache-dir --upgrade pip
 
-#copia todos los demas archivos al contenedor
-COPY . /app 
-EXPOSE 5000
-CMD ["python", "app.py"]
+#directorio que se crea dentro del contenedor
+WORKDIR /app 
+
+#copia todo dentro del directorio app del contenedor
+COPY . /app
+
+RUN pip3 install --no-cache-dir install -r requirements.txt
+
+CMD [ "python", "backend/app.py" ]

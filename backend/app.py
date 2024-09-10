@@ -8,8 +8,6 @@ from modelsDb.modelosDb import Usuario
 app = Flask(__name__)
 
 
-#logica para crear la base de datos en sqlalchemy
-
 #Esta linea lo que hace es ver si no esta creada la tabla, la crea
 conexion.Base.metadata.create_all(conexion.engine)
 
@@ -20,7 +18,7 @@ def run():
     print(usuario.id)
     conexion.session.commit()
 run()
-
+#CONSULTAS DE EJEMPLO DE SQLALCHEMY
 # consulta=conexion.session.query(Usuario).all()
 # for i in consulta:
 #     print(i.email)
@@ -33,3 +31,5 @@ run()
 
 
 
+if __name__=='__main__':
+    app.run(host="0.0.0.0", port=4000, debug=True)
