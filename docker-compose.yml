@@ -1,5 +1,5 @@
+version: "3"
 #MYSQL
-
 services:
   database:
     container_name: mysql
@@ -14,13 +14,15 @@ services:
     volumes:
       - stockcommerceDB:/var/lib/mysql
 
-  #PYTHON APP
+  #FLASK APP
   web:
     build: ./backend #busca el archivo app.py en la carpeta backend
     ports:
       - "5000:5000"
-    #depends_on:
-    #- database #te asegura que la base de datos este levantada antes de iniciar la aplicacion
+    depends_on:
+      - database
+    environment:
+      - FLASK_ENV=development
     volumes:
       - ./backend:/app
 
