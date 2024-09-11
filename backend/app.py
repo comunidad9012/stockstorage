@@ -20,7 +20,7 @@ def run():
     conexion.session.add(usuario)
     print(usuario.id)
     conexion.session.commit()
-run()
+#run()
 
 #CONSULTAS DE EJEMPLO DE SQLALCHEMY
 # consulta=conexion.session.query(Usuario).all()
@@ -34,6 +34,6 @@ run()
 #print(miNombre.username)
 
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 
-if __name__=='__main__':
-    app.run(debug=True)

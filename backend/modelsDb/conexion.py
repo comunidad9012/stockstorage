@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 host="localhost" #lo cambie por el nombre del servicio mysql de docker
 user="usuario"
 password="root"
-db="stockstorage"
+db="stockcommerce"
 
 engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}:3306/{db}')
 Session=sessionmaker(bind=engine)
