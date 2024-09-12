@@ -1,5 +1,7 @@
 from flask import Flask, jsonify
 from flask import Blueprint, request, current_app, jsonify,current_app
+from sqlalchemy.ext.declarative import declarative_base
+
 
 #aca traigo el modelo y la base de datos
 from modelsDb import conexion
@@ -10,9 +12,12 @@ app = Flask(__name__)
 @app.route("/")
 def inicio():
     return("hola mundo")
-
+    
 #Esta linea lo que hace es ver si no esta creada la tabla, la crea
-#conexion.Base.metadata.create_all(conexion.engine)
+conexion.Base.metadata.create_all(conexion.engine)
+print(type(conexion.engine))
+
+
 
 #ingresar datos
 def run():

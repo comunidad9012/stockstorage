@@ -25,3 +25,5 @@ zope.event==5.0
 zope.interface==7.0.3
 mysql-connector-python==9.0.0
 SQLAlchemy==2.0.34
+PyMySQL==1.1.1
+cryptography

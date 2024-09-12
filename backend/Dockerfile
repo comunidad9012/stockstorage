@@ -20,4 +20,4 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 # Establece el comando predeterminado para ejecutar la aplicación
-CMD ["python", "backend/app.py"]
+CMD ["python", "app.py"]
