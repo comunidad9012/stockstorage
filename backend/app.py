@@ -23,7 +23,6 @@ print(type(conexion.engine))
 def run():
     usuario=Usuario("rosa@gmail.com", "12356")
     conexion.session.add(usuario)
-    print(usuario.id)
     conexion.session.commit()
 #run()
 
