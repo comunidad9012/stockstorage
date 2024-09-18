@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from modelsDb.model_usuario import Usuario
 from schemas.user_schema import userRegisterSchema
-from marshmallow import validationError
+from marshmallow import ValidationError
 
 from modelsDb import conexion
 
