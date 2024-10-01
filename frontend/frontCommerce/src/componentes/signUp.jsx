@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 
-function Login() {
+function SignUp() {
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -24,7 +24,7 @@ function Login() {
     };
     console.log(data);
 
-    fetch("127.0.0.1/usertest/login", {
+    fetch("127.0.0.1/usertest/signUp", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -39,7 +39,7 @@ function Login() {
   return (
     <>
       <form onSubmit={submit} className="formulario">
-        <h2>Login de usuario</h2>
+        <h2>Registro de usuario</h2>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -62,4 +62,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
