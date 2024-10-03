@@ -1,10 +1,11 @@
 from modelsDb import conexion
 from sqlalchemy import Column, Integer, String
+from flask_login import UserMixin
 
-class Usuario(conexion.Base):
+class Usuario(conexion.Base, UserMixin):
     __tablename__='usuarios'
 
-    idusuarios= Column(Integer, autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     email=Column(String(100), nullable=False)
     password=Column(String(100), nullable=False)
 

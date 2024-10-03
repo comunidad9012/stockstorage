@@ -5,9 +5,9 @@ from marshmallow import ValidationError
 
 from modelsDb import conexion
 
-apiUser= Blueprint('user', __name__, url_prefix='/register')
+blueprintRegister= Blueprint('user', __name__, url_prefix='/')
 
-@apiUser.post('/register')
+@blueprintRegister.post('/register')
 def registerUser():
     try:
         email = request.json['email']
